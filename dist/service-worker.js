@@ -5,7 +5,7 @@ if (workbox) {
 
     workbox.core.setCacheNameDetails({
         prefix: 'adamWorkBox',
-        suffix: 'v3'
+        suffix: 'v1'
     });
 
     workbox.precaching.precacheAndRoute([
