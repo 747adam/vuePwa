@@ -1,4 +1,4 @@
-importScripts("precache-manifest.124da65c653a98a206c733ebe457bf56.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.5b7694b5ca0c200888c5a9d365ff9e3a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 if (workbox) {
     console.log('有進入workbox')
@@ -59,5 +59,5 @@ self.addEventListener('activate', event => {
 });
 // fetch
 self.addEventListener('fetch', event => {
-    console.log('抓到request:', event.request);
+    console.log('fetch');
 });

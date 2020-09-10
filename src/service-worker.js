@@ -57,5 +57,5 @@ self.addEventListener('activate', event => {
 });
 // fetch
 self.addEventListener('fetch', event => {
-    console.log('抓到request:', event.request);
+    console.log('fetch');
 });
