@@ -1,4 +1,4 @@
-importScripts("precache-manifest.5b7694b5ca0c200888c5a9d365ff9e3a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.273f981632771a1171e92592cf2b11dd.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 if (workbox) {
     console.log('有進入workbox')
