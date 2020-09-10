@@ -8,7 +8,7 @@ if (workbox) {
 
     workbox.precaching.precacheAndRoute([
         {
-          url: '/index.html'
+          url: 'vuePwa/dist/index.html'
         }
     ]);
     workbox.routing.registerRoute(
