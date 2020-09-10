@@ -8,7 +8,7 @@ if (workbox) {
 
     workbox.precaching.precacheAndRoute([
         {
-          url: '/'
+          url: '/index.html'
         }
     ]);
     workbox.routing.registerRoute(
