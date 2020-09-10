@@ -14,8 +14,7 @@ module.exports = {
     },
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swSrc: './src/service-worker.js',
-      exclude: [/swagger-ui/],
+      swSrc: './src/service-worker.js'
     }
   }
 }
