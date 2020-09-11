@@ -1,8 +1,6 @@
-importScripts("precache-manifest.5b7694b5ca0c200888c5a9d365ff9e3a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("precache-manifest.2f25fe3345027b76c8b140a535f163ad.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 if (workbox) {
-    console.log('有進入workbox')
-
     workbox.core.setCacheNameDetails({
         prefix: 'adamWorkBox',
         suffix: 'v1'
@@ -14,26 +12,20 @@ if (workbox) {
         }
     ]);
     workbox.routing.registerRoute(
-        new RegExp('.+\\.js$'),
-        // JavaScript文件盡可能來自網絡，但如果網絡出現故障，則回退到cache版本
-        new workbox.strategies.NetworkFirst
+        /.*\.js/,
+        new workbox.strategies.NetworkFirst({
+            cacheName: 'js-cache',
+        })
     );
     workbox.routing.registerRoute(
-        // Cache CSS files
         /.*\.css/,
-        // Use cache but update in the background ASAP
         new workbox.strategies.NetworkFirst({
-            // Use a custom cache name
             cacheName: 'css-cache',
         })
     );
     // 圖像可以cache並使用，最久7天之後更新
     workbox.routing.registerRoute(
-        // /\.(?:png|gif|jpg|jpeg|svg)$/,
-        // Cache image files
         /.*\.(?:png|jpg|jpeg|svg|gif)/,
-        // Use the cache if it's available
-        // workbox.strategies.staleWhileRevalidate({
             new workbox.strategies.CacheFirst({
             cacheName: 'images-cache',
             plugins: [
@@ -48,6 +40,8 @@ if (workbox) {
         }),
     );
 }
+
+
 
 // install
 self.addEventListener('install', event => {

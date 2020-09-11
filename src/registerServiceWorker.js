@@ -2,7 +2,6 @@
 
 import { register } from 'register-service-worker'
 
-// if ('serviceWorker' in navigator) {
 if (process.env.NODE_ENV === 'production') {
   register(`${process.env.BASE_URL}service-worker.js`, {
     ready () {
@@ -30,11 +29,4 @@ if (process.env.NODE_ENV === 'production') {
       console.error('Error during service worker registration:', error)
     }
   })
-
-  // let refreshing
-  // navigator.serviceWorker.addEventListener("controllerchange", () =>{
-  //   if (refreshing) return
-  //   window.location.reload()
-  //   refreshing = true
-  // })
 }
