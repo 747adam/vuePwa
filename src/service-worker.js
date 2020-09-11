@@ -1,16 +1,15 @@
 if (workbox) {
     workbox.core.setCacheNameDetails({
-        prefix: 'adamWorkBox',
-        suffix: 'v1'
+        prefix: 'adamWorkBox'
     });
-
     workbox.precaching.precacheAndRoute([
         {
-          url: 'index.html'
+          url: 'index.html',
+          revision: 'v1'
         }
     ]);
     workbox.routing.registerRoute(
-        /.*\.js/,
+        /.+\\.js$/,
         new workbox.strategies.NetworkFirst({
             cacheName: 'js-cache',
         })
@@ -24,8 +23,9 @@ if (workbox) {
     // 圖像可以cache並使用，最久7天之後更新
     workbox.routing.registerRoute(
         /.*\.(?:png|jpg|jpeg|svg|gif)/,
-            new workbox.strategies.CacheFirst({
+        new workbox.strategies.CacheFirst({
             cacheName: 'images-cache',
+            suffix: 'v1',
             plugins: [
                 new workbox.expiration.Plugin({
                     // 最多cache圖片張數
